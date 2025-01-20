@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Clock</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #403c3c;
+        color: white;
+    }
+    body::-webkit-scrollbar{
+        display: none;
+    }
+
+    .clock-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        padding: 40px;
+        border-radius: 10px;
+        border: 2px solid white;
+    }
+
+    .clock {
+        font-size: 5rem;
+    }
+</style>
+<body>
+    <div class="clock-container">
+        <h1 class="clock">00:00:00</h1>
+    </div>
+
+    <script>
+       setInterval(()=>{
+        const element = document.querySelector('.clock')
+       const time=new Date();
+       const option={
+        timeZone:'Asia/Kolkata',
+        hour:'2-digit',
+        minute:'2-digit',
+        second:'2-digit'
+       }
+
+       element.textContent=time.toLocaleTimeString('en-US',option)
+       },1000)
+       //console.log(element)
+
+    </script>
+</body>
+</html>
